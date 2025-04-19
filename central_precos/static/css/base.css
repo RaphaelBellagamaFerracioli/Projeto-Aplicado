@@ -1,79 +1,99 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 15%;
+/* Estilo do menu lateral */
+.sidebar {
+    width: 250px;
     height: 100vh;
-    background-color: rgba(238, 238, 238, 0.39);
-    border-radius: 0px 15px 15px 0px;
-    box-shadow: rgba(155, 155, 155, 0.192) 3px 3px 5px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    transition: all 0.3s;
+    z-index: 1000;
 }
 
-nav div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    height: 55%;
+.sidebar.active {
+    left: 0;
 }
 
-nav div a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 45px;
-    margin: 10px;
+.main-content {
+    margin-left: 0;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.main-content.active {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar-header {
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.components li a {
+    color: #495057;
     text-decoration: none;
-    color: black;
-    border-radius: 12px;
-    transition: ease 0.5s;
+    transition: all 0.3s;
 }
 
-nav div a:hover {
-    background-color: rgba(197, 230, 245, 0.63);
-    box-shadow: rgba(0, 0, 0, 0.123) 3px 2px 3px;
+.components li a:hover {
+    color: #0d6efd;
+    background-color: #e9ecef;
 }
 
-nav div a:active {
-    background-color: rgba(180, 208, 221, 0.63);
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #e9ecef;
+    border-top: 1px solid #dee2e6;
 }
 
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 10%;
+/* Estilo para o botão de menu mobile */
+#mobileMenuToggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+    display: none;
 }
 
-section h2 {
-    font-size: 30px;
-    margin-top: 20%;
-    margin-bottom: 15%;
+@media (max-width: 768px) {
+    #mobileMenuToggle {
+        display: block;
+    }
+    
+    .main-content.active {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar.active {
+        left: 0;
+        width: 80%;
+    }
 }
 
-section input {
-    width: 70%;
-    height: 7%;
-    border-radius: 12px;
-    border: none;
-    background-color: rgba(238, 238, 238, 0.788);
-    box-shadow: rgba(0, 0, 0, 0.123) 3px 2px 3px;
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: ease 0.5s;
+/* Estilo adicional para os cards */
+.card {
+    transition: transform 0.2s;
 }
 
-section input:focus {
-    border: 2px solid rgb(167, 167, 167);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.finder {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+    width: 100%;
+}
+
+.finder:focus {
     outline: none;
-    background-color: white;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }

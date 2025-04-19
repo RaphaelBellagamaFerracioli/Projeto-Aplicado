@@ -57,9 +57,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'app_central_precos/templates',
+            BASE_DIR / 'templates',  # Templates globais
         ],
-        'APP_DIRS': True,
+        'APP_DIRS': True,  # Procura templates em cada app/templates/
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
